@@ -18,18 +18,14 @@ public class BillboardResponse {
 
         this.content = new HashMap<>();
         for (Map.Entry<String, JsonElement> entry : contentObject.entrySet()) {
+            String rank = entry.getKey();  // This is the rank
             JsonObject songObject = entry.getValue().getAsJsonObject();
-            String rank = entry.getKey();
+            String id = songObject.has("id") ? songObject.get("id").getAsString() : "";
             String title = songObject.has("title") ? songObject.get("title").getAsString() : "";
             String artist = songObject.has("artist") ? songObject.get("artist").getAsString() : "";
-            String image = songObject.has("image") ? songObject.get("image").getAsString() : "";
-            int weeksAtNo1 = songObject.has("weeks_at_no_1") ? songObject.get("weeks_at_no_1").getAsInt() : 0;
-            int lastWeek = songObject.has("last_week") ? songObject.get("last_week").getAsInt() : 0;
-            int peakPosition = songObject.has("peak_position") ? songObject.get("peak_position").getAsInt() : 0;
-            int weeksOnChart = songObject.has("weeks_on_chart") ? songObject.get("weeks_on_chart").getAsInt() : 0;
-            String detail = songObject.has("detail") ? songObject.get("detail").getAsString() : "";
+            int year = songObject.has("year") ? songObject.get("year").getAsInt() : 0;
 
-            Song song = new Song(title, artist, image, weeksAtNo1, lastWeek, peakPosition, weeksOnChart, detail);
+            Song song = new Song(id, title, artist, year);
             this.content.put(rank, song);
         }
     }

@@ -1,20 +1,26 @@
 package ca.georgian.assignment2;
 
 public class Song {
+    private String id;
     private String title;
     private String artist;
     private int year;
     private String album;
 
     // Constructor
-    public Song(String title, String artist, int year) {
+    public Song(String id, String title, String artist, int year) {
+        this.id = id;
         this.title = title;
         this.artist = artist;
         this.year = year;
-        this.album = album;
+        this.album = "";  // Initialize as empty string
     }
 
     // Getter methods
+    public String getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -29,13 +29,13 @@ public class ApiParser {
             for (JsonElement itemElement : songsElement.getAsJsonArray()) {
                 JsonObject songObject = itemElement.getAsJsonObject();
 
+                String id = songObject.has("id") ? songObject.get("id").getAsString() : "";
                 String trackName = songObject.has("title") ? songObject.get("title").getAsString() : "Unknown Title";
                 String artistName = songObject.has("artist") ? songObject.get("artist").getAsString() : "Unknown Artist";
-                String albumName = songObject.has("album") ? songObject.get("album").getAsString() : "Unknown Album";
-                int durationMs = songObject.has("duration_ms") ? songObject.get("duration_ms").getAsInt() : 0;
+                int year = songObject.has("year") ? songObject.get("year").getAsInt() : 0;
 
                 // Create a new Song object
-                songs.add(new Song(trackName, artistName, durationMs));
+                songs.add(new Song(id, trackName, artistName, year));
             }
         } catch (Exception e) {
             throw new ParsingException("Error parsing JSON response: " + e.getMessage());

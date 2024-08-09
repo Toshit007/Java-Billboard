@@ -13,7 +13,7 @@ public class WorkingWithJson {
 
     // Serialize a Song object to JSON
     static void task2() {
-        Song song = new Song("Song Title", "Artist Name", 2024);
+        Song song = new Song("1", "Song Title", "Artist Name", 2024);
         try {
             String json = gson.toJson(song);
             System.out.println("Serialized JSON:");
@@ -39,9 +39,9 @@ public class WorkingWithJson {
     // Handling a JSON string with multiple Song objects
     static void multipleValuesPart1() {
         List<Song> songsList = new ArrayList<>();
-        songsList.add(new Song("First Song", "First Artist", 2021));
-        songsList.add(new Song("Second Song", "Second Artist", 2022));
-        songsList.add(new Song("Third Song", "Third Artist", 2023));
+        songsList.add(new Song("1", "First Song", "First Artist", 2021));
+        songsList.add(new Song("2", "Second Song", "Second Artist", 2022));
+        songsList.add(new Song("3", "Third Song", "Third Artist", 2023));
 
         try {
             String json = gson.toJson(songsList);
@@ -71,7 +71,7 @@ public class WorkingWithJson {
 
     // Create JSON string with readable formatting
     static void jsonWithReadableFormatting() {
-        Song song = new Song("Formatted Song", "Formatted Artist", 2024);
+        Song song = new Song("1", "Formatted Song", "Formatted Artist", 2024);
         try {
             String json = gson.toJson(song);
             System.out.println("Formatted JSON:");
