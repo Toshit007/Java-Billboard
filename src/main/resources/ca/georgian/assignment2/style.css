@@ -1,0 +1,19 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.text-field {
+    -fx-background-radius: 5;
+    -fx-border-color: #3498db;
+    -fx-border-radius: 5;
+}
+
+.list-view {
+    -fx-background-color: #ecf0f1;
+}
